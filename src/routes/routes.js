@@ -3,6 +3,7 @@ import Root from '../Layouts/Root';
 import Home from '../Pages/Home';
 import Error from '../Pages/Error';
 import AddCoffee from '../Pages/AddCoffee';
+import UpdateCoffee from '../Pages/UpdateCoffee';
 
 export const router = createBrowserRouter([
     {
@@ -17,6 +18,10 @@ export const router = createBrowserRouter([
             {
                 path: '/addproduct',
                 element: <AddCoffee />
+            },
+            {
+                path: '/updateproduct/:id',
+                element: <UpdateCoffee />
             }
         ]
     }
