@@ -11,9 +11,9 @@ const styles = {
     backgroundSize: 'cover',
 }
 const UpdateCoffee = () => {
+    const { id: coffeeId } = useParams();
     const [loading, setLoading] = useState(false);
     const [singleProduct, setSingleProduct] = useState(null) || {}
-    const { id: coffeeId } = useParams();
 
     useEffect(() => {
         const url = `http://localhost:5000/products/${ coffeeId }`
