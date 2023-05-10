@@ -3,7 +3,7 @@ import { AiFillEye } from 'react-icons/ai'
 import { FaTrash } from 'react-icons/fa'
 import { MdEdit } from 'react-icons/md'
 import { Link } from 'react-router-dom';
-const CoffeeCard = ({ item }) => {
+const CoffeeCard = ({ item, updatedProducts, setUpdatedProducts }) => {
     const { category, chef, details, name, photo, supplier, taste, _id } = item;
 
     const handleDelete = id => {
@@ -15,7 +15,12 @@ const CoffeeCard = ({ item }) => {
                 method: "DELETE"
             })
                 .then(res => res.json())
-                .then(data => console.log(data))
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        const remaining = updatedProducts.filter(pd => pd._d !== id);
+                        setUpdatedProducts(remaining)
+                    }
+                })
         }
     }
 

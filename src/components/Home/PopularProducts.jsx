@@ -7,6 +7,7 @@ const PopularProducts = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('')
     const [products, setProducts] = useState([]);
+    const [updatedProducts, setUpdatedProducts] = useState(products)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -15,13 +16,6 @@ const PopularProducts = () => {
             const res = await fetch(url);
             const data = await res.json();
             setLoading(false)
-            if (data.success === true) {
-                setError('')
-                setProducts(data.products);
-                return
-            } else {
-                return setError("No Data Found ⚠️")
-            }
         }
         fetchData()
     }, [])
@@ -41,8 +35,13 @@ const PopularProducts = () => {
                 </Link>
             </div>
             <div className='lg:w-9/12 mx-auto grid md:grid-cols-2 grid-cols-1 my-10 lg:gap-10 gap-5 category-card'>
-                { products.length > 0 ?
-                    products.map(item => <CoffeeCard key={ item._id } item={ item } />)
+                { updatedProducts.length > 0 ?
+                    updatedProducts.map(item => <CoffeeCard
+                        key={ item._id }
+                        item={ item }
+                        updatedProducts={ updatedProducts }
+                        setUpdatedProducts={ setUpdatedProducts }
+                    />)
                     : <h3>No Data Found!</h3>
                 }
             </div>
