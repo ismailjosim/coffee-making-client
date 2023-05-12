@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Loading from '../../utils/Loading'
 import CoffeeCard from './CoffeeCard';
+import Error from '../../utils/Error';
 
 const PopularProducts = () => {
     const [loading, setLoading] = useState(false);
@@ -11,17 +12,26 @@ const PopularProducts = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            setLoading(true)
-            const url = 'http://localhost:5000/products';
-            const res = await fetch(url);
-            const data = await res.json();
-            setLoading(false)
-        }
-        fetchData()
-    }, [])
+            setLoading(true);
+            try {
+                const url = 'http://localhost:5000/products';
+                const res = await fetch(url);
+                const data = await res.json();
+                setProducts(data.products);
+                setUpdatedProducts(data.products);
+            } catch (err) {
+                setError(err.message);
+            }
+            setLoading(false);
+        };
+        fetchData();
+    }, []);
+
 
     // Show Loading When data is not Ready
     if (loading) return <Loading />
+
+    if (error) return <Error message={ error } />
 
 
 

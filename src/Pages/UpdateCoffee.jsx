@@ -27,7 +27,7 @@ const UpdateCoffee = () => {
             }
         }
         fetchData()
-    }, [coffeeId])
+    }, [coffeeId, setSingleProduct])
 
     const { category, chef, details, price, name, photo, taste } = singleProduct || {};
 
