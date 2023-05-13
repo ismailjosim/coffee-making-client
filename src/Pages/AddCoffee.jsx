@@ -3,6 +3,7 @@ import bgImage from '../assets/more/11.png'
 import { Link } from 'react-router-dom';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { toast } from 'react-toastify';
+import InputField from '../utils/InputField';
 
 const styles = {
     backgroundImage: `url(${ bgImage })`,
@@ -79,6 +80,7 @@ const AddCoffee = () => {
                         <label className="label font-poppins font-semibold">Name</label>
                         <input type="text" placeholder="Enter Coffee Name" name='name' className="input input-bordered input-primary w-full" />
                     </div>
+                    { /*<InputField type={ "text" } name={ "name" } placeholderText={ "Enter Coffee Name" } />*/ }
                     <div className="form-control w-full">
                         <label className="label font-poppins font-semibold">Chef</label>
                         <input type="text" placeholder="Enter Chef Name" name='chef' className="input input-bordered w-full input-primary" />
