@@ -1,23 +1,21 @@
-<div align='center'><img width="150" src='./src/assets/personal-logo.png'/></div>
+<div align='center'><img width="150" src='https://i.postimg.cc/vZTpbbFL/Coffee-shop.png'/></div>
 
 <h2>About the project</h2>
 
-👉 Live Demo: <a target="_blank" href='https://ismailjosim.netlify.app/'>Personal Portfolio</a>
+👉 Live Demo: <a target="_blank" href='https://ismailjosim.netlify.app/'>Coffee Shop</a>
 
 <h3>Build with:</h3>
 
 * ReactJS
-* CSS3
-* JavaScript
-* swiper slider
+* Tailwind
+* React Router DOM
+* React Toastify
 * React Icons
-* react-typed
-* lottie-react
-* emailjs
+* Daisy UI
 
 <h2>Screenshots of the Project 📸</h2>
 <br>
 
 <div align='center'>
-<img src='./src/assets/Portfolio-Demo.png'/>
+<img src='https://i.postimg.cc/vZTpbbFL/Coffee-shop.png'/>
 </div>
