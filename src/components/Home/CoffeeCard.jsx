@@ -25,9 +25,13 @@ const CoffeeCard = ({ item, updatedProducts, setUpdatedProducts }) => {
     }
 
     return (
-        <div key={ _id } className="card card-side bg-neutral shadow-md rounded-md" >
-            <figure><img src={ photo } alt="Movie" /></figure>
-            <div className="card-body font-poppins">
+        <div key={ _id } className="card card-side bg-neutral shadow-md rounded-md flex flex-col lg:text-row md:flex-row">
+            <div style={ { position: 'relative', overflow: 'hidden' } }>
+                <figure style={ { margin: 0 } }>
+                    <img className='w-full h-full object-cover' src={ photo } alt={ name } />
+                </figure>
+            </div>
+            <div className="card-body font-poppins" style={ { display: 'flex', flexDirection: 'column', flexGrow: 1 } }>
                 <h2 className="flex items-center justify-between">
                     <span className='font-normal flex gap-3'>
                         <strong>Name:</strong>
@@ -51,6 +55,8 @@ const CoffeeCard = ({ item, updatedProducts, setUpdatedProducts }) => {
                 </p>
             </div>
         </div>
+
+
     );
 };
 
