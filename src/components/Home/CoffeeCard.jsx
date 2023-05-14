@@ -10,7 +10,7 @@ const CoffeeCard = ({ item, updatedProducts, setUpdatedProducts }) => {
         // eslint-disable-next-line no-restricted-globals
         const confirmed = confirm('are you Sure!');
         if (confirmed) {
-            const url = `http://localhost:5000/products/${ id }`;
+            const url = `https://coffee-making-server.vercel.app/products/${ id }`;
             fetch(url, {
                 method: "DELETE"
             })

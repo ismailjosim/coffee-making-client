@@ -41,7 +41,7 @@ const AddCoffee = () => {
                         photo: imgData?.data?.url
                     }
                     // console.log(coffeeInfo);
-                    fetch("http://localhost:5000/products", {
+                    fetch("https://coffee-making-server.vercel.app/products", {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json'

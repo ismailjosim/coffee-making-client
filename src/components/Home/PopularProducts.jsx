@@ -14,7 +14,7 @@ const PopularProducts = () => {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const url = 'http://localhost:5000/products';
+                const url = 'https://coffee-making-server.vercel.app/products';
                 const res = await fetch(url);
                 const data = await res.json();
                 setProducts(data.products);
