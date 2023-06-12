@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Loading from '../utils/Loading';
 import Error from '../utils/Error';
+import { Link } from 'react-router-dom';
 
 const Orders = () => {
     const [loading, setLoading] = useState(false);
@@ -61,7 +62,7 @@ const Orders = () => {
                         {/* row 1 */ }
                         {
                             order && order.map(singleItem => {
-                                const { name, category, chef, customerComment, price, photo, _id, serveStatus } = singleItem || {}
+                                const { name, category, customerComment, price, photo, _id, serveStatus } = singleItem || {}
                                 return (
                                     <tr key={ _id }>
                                         <th>
@@ -84,9 +85,12 @@ const Orders = () => {
                                         <td>{ category }</td>
                                         <td>{ customerComment }</td>
                                         <td>{ price }</td>
-                                        <td><div className='badge badge-primary bg-red-600 text-white font-poppins'>{ serveStatus ? 'Served' : 'Pending' }</div></td>
+                                        <td>{ serveStatus ?
+                                            <div className='badge badge-primary bg-green-600 text-white font-poppins'>Served</div> :
+                                            <div className='badge badge-primary bg-red-600 text-white font-poppins'>Pending</div>
+                                        }</td>
                                         <th>
-                                            <button className="btn btn-primary btn-xs">Place Order</button>
+                                            <Link to={ `/payment/${ _id }` } className="btn btn-primary btn-xs">Place Order</Link>
                                         </th>
                                     </tr>
                                 )

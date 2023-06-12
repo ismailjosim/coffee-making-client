@@ -5,6 +5,7 @@ import Error from '../Pages/Error';
 import AddCoffee from '../Pages/AddCoffee';
 import UpdateCoffee from '../Pages/UpdateCoffee';
 import Orders from '../Pages/Orders';
+import Payment from '../components/Home/Payment';
 
 export const router = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
             {
                 path: '/orders',
                 element: <Orders />
+            },
+            {
+                path: '/payment/:id',
+                element: <Payment />
             }
         ]
     }
