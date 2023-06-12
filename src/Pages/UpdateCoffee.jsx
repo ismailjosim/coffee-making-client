@@ -16,7 +16,7 @@ const UpdateCoffee = () => {
     const [singleProduct, setSingleProduct] = useState(null) || {}
 
     useEffect(() => {
-        const url = `https://coffee-making-server.vercel.app/products/${ coffeeId }`
+        const url = `http://localhost:3000/products/${ coffeeId }`
         const fetchData = async () => {
             setLoading(true)
             const res = await fetch(url);
