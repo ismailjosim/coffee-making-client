@@ -11,15 +11,13 @@ const Payment = () => {
                 setSingleItem(data.orders);
             })
 
-    }, [])
+    }, [id])
 
-    const { _id,
+    const {
         name,
         category,
         photo,
         price,
-        chef,
-        serveStatus,
         customerComment } = singleItem || {}
 
     return (

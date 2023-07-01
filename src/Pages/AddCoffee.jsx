@@ -3,7 +3,6 @@ import bgImage from '../assets/more/11.png'
 import { Link } from 'react-router-dom';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { toast } from 'react-toastify';
-import InputField from '../utils/InputField';
 
 const styles = {
     backgroundImage: `url(${ bgImage })`,

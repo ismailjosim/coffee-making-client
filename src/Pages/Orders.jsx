@@ -2,22 +2,34 @@ import React, { useEffect, useState } from 'react';
 import Loading from '../utils/Loading';
 import Error from '../utils/Error';
 import { Link } from 'react-router-dom';
-
+import { BiSolidDownArrow, BiSolidUpArrow } from "react-icons/bi";
 const Orders = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('')
     const [products, setProducts] = useState([]);
     const [order, setOrder] = useState(products)
 
+    // sort data by price:
+    const [sorted, setSorted] = useState('acc');
+
+    const handleSort = () => {
+        if (sorted === 'acc') {
+            setSorted("dec")
+        } else {
+            setSorted("acc")
+        }
+    }
+
+
     useEffect(() => {
+        const url = `http://localhost:5000/sort/${ sorted }`
         const fetchData = async () => {
             setLoading(true);
             try {
-                const url = 'http://localhost:5000/orders';
                 const res = await fetch(url);
                 const data = await res.json();
-                setProducts(data.orders);
-                setOrder(data.orders);
+                setProducts(data);
+                setOrder(data);
             } catch (err) {
                 setError(err.message);
             }
@@ -25,11 +37,16 @@ const Orders = () => {
         };
         fetchData();
 
-    }, [])
+
+    }, [sorted])
 
 
     if (loading) <Loading />
     if (error) <Error />
+
+
+
+
 
 
 
@@ -53,7 +70,19 @@ const Orders = () => {
                             <th>Name</th>
                             <th>category</th>
                             <th>Comment</th>
-                            <th>price</th>
+                            <th>
+                                <div className='flex items-center gap-5'>
+                                    <span>price</span>
+                                    <button onClick={ handleSort } >
+                                        {
+                                            sorted === "acc" ?
+                                                <BiSolidUpArrow className='transition-all duration-1000 ease-in-out' size={ 16 } />
+                                                :
+                                                <BiSolidDownArrow className='transition-all duration-1000 ease-in-out' size={ 16 } />
+                                        }
+                                    </button>
+                                </div>
+                            </th>
                             <th>Served</th>
                             <th>Action</th>
                         </tr>
