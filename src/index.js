@@ -10,7 +10,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ToastContainer />
-    <RouterProvider router={ router }></RouterProvider>
+    <RouterProvider router={router}></RouterProvider>
   </React.StrictMode>
 );
-

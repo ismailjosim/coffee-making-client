@@ -8,31 +8,31 @@ import Orders from '../Pages/Orders';
 import Payment from '../components/Home/Payment';
 
 export const router = createBrowserRouter([
-    {
+  {
+    path: '/',
+    element: <Root />,
+    errorElement: <Error />,
+    children: [
+      {
         path: '/',
-        element: <Root />,
-        errorElement: <Error />,
-        children: [
-            {
-                path: '/',
-                element: <Home />
-            },
-            {
-                path: '/addproduct',
-                element: <AddCoffee />
-            },
-            {
-                path: '/updateproduct/:id',
-                element: <UpdateCoffee />
-            },
-            {
-                path: '/orders',
-                element: <Orders />
-            },
-            {
-                path: '/payment/:id',
-                element: <Payment />
-            }
-        ]
-    }
-])
+        element: <Home />,
+      },
+      {
+        path: '/addproduct',
+        element: <AddCoffee />,
+      },
+      {
+        path: '/updateproduct/:id',
+        element: <UpdateCoffee />,
+      },
+      {
+        path: '/orders',
+        element: <Orders />,
+      },
+      {
+        path: '/payment/:id',
+        element: <Payment />,
+      },
+    ],
+  },
+]);
